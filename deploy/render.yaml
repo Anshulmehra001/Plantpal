@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: saathi-ai
+    env: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+    healthCheckPath: /health
+    
+databases:
+  - name: saathi-ai-db
+    databaseName: saathi_ai
+    user: saathi_user

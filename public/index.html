@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Companion - Your AI Plant Friend</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-fix.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-seedling"></i>
+                    <span>Plant Companion</span>
+                </div>
+                <nav class="nav">
+                    <button class="nav-btn active" data-page="chat">
+                        <i class="fas fa-comments"></i>
+                        Chat
+                    </button>
+                    <button class="nav-btn" data-page="garden">
+                        <i class="fas fa-leaf"></i>
+                        Garden
+                    </button>
+                    <button class="nav-btn" data-page="insights">
+                        <i class="fas fa-chart-line"></i>
+                        Insights
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Chat Page -->
+            <div id="chat-page" class="page active">
+                <div class="chat-layout">
+                    <!-- Plant Section -->
+                    <div class="plant-section">
+                        <div class="plant-info">
+                            <h2 id="plant-name">Little Sprout</h2>
+                            <p id="plant-mood">Curious about you! 🌿</p>
+                            <div class="growth-bar">
+                                <div class="growth-progress" id="growth-progress" style="width: 20%"></div>
+                            </div>
+                            <div class="stats">
+                                <div class="stat">
+                                    <span>Growth</span>
+                                    <span id="growth-level">20%</span>
+                                </div>
+                                <div class="stat">
+                                    <span>Chats</span>
+                                    <span id="chat-count">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="plant-visual" id="plant-visual">
+                            <div class="plant-container" id="plant-container">
+                                <!-- Sparkle effects for interactions -->
+                                <div class="sparkles" id="sparkles"></div>
+                                
+                                <!-- Flower with enhanced structure -->
+                                <div class="flower" id="flower" style="display: none;">
+                                    <div class="petal petal-1"></div>
+                                    <div class="petal petal-2"></div>
+                                    <div class="petal petal-3"></div>
+                                    <div class="petal petal-4"></div>
+                                    <div class="petal petal-5"></div>
+                                    <div class="flower-center"></div>
+                                    <div class="flower-glow"></div>
+                                </div>
+                                
+                                <!-- Enhanced leaves with more variety -->
+                                <div class="leaves" id="leaves">
+                                    <div class="leaf leaf-1" data-growth-stage="1"></div>
+                                    <div class="leaf leaf-2" data-growth-stage="2"></div>
+                                    <div class="leaf leaf-3" data-growth-stage="3"></div>
+                                    <div class="leaf leaf-4" data-growth-stage="4" style="display: none;"></div>
+                                    <div class="leaf leaf-5" data-growth-stage="5" style="display: none;"></div>
+                                    <div class="leaf leaf-6" data-growth-stage="6" style="display: none;"></div>
+                                </div>
+                                
+                                <!-- Enhanced stem with segments -->
+                                <div class="stem" id="stem">
+                                    <div class="stem-segment stem-base"></div>
+                                    <div class="stem-segment stem-middle" style="display: none;"></div>
+                                    <div class="stem-segment stem-top" style="display: none;"></div>
+                                    <div class="stem-texture"></div>
+                                </div>
+                                
+                                <!-- Enhanced pot with decorative elements -->
+                                <div class="pot" id="pot">
+                                    <div class="pot-rim"></div>
+                                    <div class="pot-body">
+                                        <div class="pot-pattern"></div>
+                                    </div>
+                                    <div class="soil">
+                                        <div class="soil-surface"></div>
+                                        <div class="soil-nutrients"></div>
+                                    </div>
+                                    <div class="pot-shadow"></div>
+                                </div>
+                                
+                                <!-- Growth effects -->
+                                <div class="growth-effects" id="growth-effects"></div>
+                                
+                                <!-- Mood indicator -->
+                                <div class="mood-indicator" id="mood-indicator">
+                                    <div class="mood-aura"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Plant interaction tooltip -->
+                            <div class="plant-tooltip" id="plant-tooltip" style="display: none;">
+                                <span id="tooltip-text">Click me for encouragement! 🌱</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Section -->
+                    <div class="chat-section">
+                        <div class="chat-header">
+                            <h3>💬 Chat with Your Plant</h3>
+                            <p>Share your thoughts, goals, and dreams!</p>
+                        </div>
+                        
+                        <div class="chat-messages" id="chat-messages">
+                            <!-- Messages will be added here -->
+                        </div>
+                        
+                        <div class="chat-input-area">
+                            <div class="input-container">
+                                <input 
+                                    type="text" 
+                                    id="message-input" 
+                                    placeholder="Type your message here..." 
+                                    maxlength="500"
+                                >
+                                <button id="send-button" disabled>
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <div class="input-help">
+                                <small>Press Enter to send • Everything is private</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garden Page -->
+            <div id="garden-page" class="page">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>🌿 Your Growth Garden</h2>
+                        <p>Track your achievements and celebrate your progress!</p>
+                    </div>
+                    
+                    <div class="garden-stats">
+                        <div class="garden-stat">
+                            <div class="stat-icon">🌱</div>
+                            <div class="stat-info">
+                                <h3 id="garden-growth">20%</h3>
+                                <p>Total Growth</p>
+                            </div>
+                        </div>
+                        <div class="garden-stat">
+                            <div class="stat-icon">💬</div>
+                            <div class="stat-info">
+                                <h3 id="garden-chats">0</h3>
+                                <p>Conversations</p>
+                            </div>
+                        </div>
+                        <div class="garden-stat">
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-info">
+                                <h3 id="garden-achievements">1</h3>
+                                <p>Achievements</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievements-section">
+                        <h3>🏆 Achievements</h3>
+                        <div class="achievements" id="achievements-list">
+                            <!-- Achievements will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insights Page -->
+            <div id="insights-page" class="page">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>📊 Growth Insights</h2>
+                        <p>Understand your emotional journey and growth patterns</p>
+                    </div>
+                    
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <div class="card-header">
+                                <h4>🌱 Growth Progress</h4>
+                            </div>
+                            <div class="big-number" id="insights-growth">20%</div>
+                            <div class="card-subtitle">Total Development</div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="card-header">
+                                <h4>💬 Conversations</h4>
+                            </div>
+                            <div class="big-number" id="insights-chats">0</div>
+                            <div class="card-subtitle">Total Interactions</div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="card-header">
+                                <h4>😊 Current Mood</h4>
+                            </div>
+                            <div class="mood-indicator" id="insights-mood">🌿 Curious</div>
+                            <div class="card-subtitle">Plant's State</div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="card-header">
+                                <h4>⭐ Growth Stage</h4>
+                            </div>
+                            <div class="stage-indicator" id="insights-stage">Little Sprout</div>
+                            <div class="card-subtitle">Current Level</div>
+                        </div>
+                    </div>
+                    
+                    <div class="insights-details">
+                        <div class="detail-section">
+                            <h3>🌿 Growth Journey</h3>
+                            <div class="journey-timeline" id="growth-timeline">
+                                <!-- Timeline will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h3>💡 Insights & Tips</h3>
+                            <div class="tips-container" id="growth-tips">
+                                <!-- Tips will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Plant is thinking...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "Mental AI - Youth Wellness Companion",
+  "description": "AI-powered mental wellness companion for Indian youth",
+  "repository": "https://github.com/yourusername/mental-ai-wellness",
+  "logo": "https://via.placeholder.com/200x200/4f46e5/ffffff?text=Mental+AI",
+  "keywords": ["mental-health", "ai", "youth", "india", "gemini", "wellness"],
+  "success_url": "/",
+  "env": {
+    "NODE_ENV": {
+      "description": "Node environment",
+      "value": "production"
+    },
+    "GEMINI_API_KEY": {
+      "description": "Google Gemini API Key",
+      "required": true
+    },
+    "PORT": {
+      "description": "Port number",
+      "value": "3000"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

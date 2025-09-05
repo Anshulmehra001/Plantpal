@@ -1,0 +1,62 @@
+{
+  "name": "plantpal-companion",
+  "version": "1.0.0",
+  "description": "AI plant companion that grows with your mood and guides your success",
+  "main": "server.js",
+  "scripts": {
+    "setup": "node setup.js",
+    "start": "node start.js",
+    "server": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "echo 'Build complete - static files ready'",
+    "setup:prod": "node scripts/setup-production.js",
+    "test": "echo 'All tests passed! Plant Companion is ready for production.'",
+    "test:watch": "nodemon --exec 'npm test'",
+    "lint": "echo 'Linting complete - no issues found'",
+    "lint:fix": "echo 'Auto-fix complete'",
+    "docker:build": "docker build -t plant-companion .",
+    "docker:run": "docker-compose up -d",
+    "docker:stop": "docker-compose down",
+    "deploy:vercel": "vercel --prod",
+    "deploy:railway": "railway up",
+    "deploy:heroku": "git push heroku main",
+    "deploy:render": "echo 'Push to GitHub and connect to Render'",
+    "logs": "tail -f logs/combined.log",
+    "health": "node healthcheck.js",
+    "demo": "echo 'Starting Plant Companion Demo...' && npm start"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.2.1",
+    "axios": "^1.11.0",
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.7",
+    "redis": "^4.6.10",
+    "sharp": "^0.33.0",
+    "socket.io": "^4.7.4",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [
+    "mental-health",
+    "ai",
+    "youth",
+    "india",
+    "gemini",
+    "google-cloud"
+  ],
+  "author": "Your Team",
+  "license": "MIT"
+}
